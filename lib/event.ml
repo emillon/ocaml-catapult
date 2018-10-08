@@ -36,3 +36,8 @@ let duration_end ~name ~ts ?args ?color () =
 
 let instant ~name ~ts ?args ?color () =
   make ~ph:'I' ~name ~ts ?args:(build_args args) ?color ()
+
+let counter_args args = `Assoc (List.map (fun (k, v) -> (k, `Int v)) args)
+
+let counter ~name ~ts ~args ?color () =
+  make ~ph:'C' ~name ~ts ~args:(counter_args args) ?color ()

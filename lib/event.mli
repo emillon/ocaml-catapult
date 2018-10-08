@@ -32,3 +32,11 @@ val instant :
   -> ?color:string
   -> unit
   -> t
+
+val counter :
+     name:string
+  -> ts:Mtime.t
+  -> args:(string * int) list
+  -> ?color:string
+  -> unit
+  -> t

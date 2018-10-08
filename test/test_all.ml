@@ -40,7 +40,19 @@ let test_to_yojson =
   ; case "instant"
       (test
          (Catapult.Event.instant ~name ~ts ())
-         [%yojson {name = "name"; pid = 0; tid = 0; ph = "I"; ts = 1.}]) ]
+         [%yojson {name = "name"; pid = 0; tid = 0; ph = "I"; ts = 1.}])
+  ; case "counter"
+      (test
+         (Catapult.Event.counter ~name ~ts
+            ~args:[("series1", 1); ("series2", 2)]
+            ())
+         [%yojson
+           { name = "name"
+           ; pid = 0
+           ; tid = 0
+           ; ph = "C"
+           ; ts = 1.
+           ; args = {series1 = 1; series2 = 2} }]) ]
 
 let tests = [("to_yojson", test_to_yojson)]
 
