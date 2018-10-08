@@ -1,0 +1,6 @@
+(library
+ (name catapult)
+ (libraries mtime ppx_deriving_yojson.runtime)
+ (preprocess (pps ppx_deriving.make ppx_deriving_yojson ))
+ (flags :standard -w -39)
+)

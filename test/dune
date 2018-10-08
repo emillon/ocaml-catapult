@@ -1,0 +1,5 @@
+(test
+ (name test_all)
+ (libraries alcotest catapult)
+ (preprocess (pps ppx_yojson))
+)
